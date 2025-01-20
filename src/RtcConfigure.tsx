@@ -32,6 +32,7 @@ import {
   UserPin,
   UserSecondaryPin,
   ActiveSpeaker,
+  Spotlight,
 } from './Reducer';
 import Create from './Rtc/Create';
 import Join from './Rtc/Join';
@@ -260,6 +261,11 @@ const RtcConfigure = (outerProps: {children: React.ReactNode}) => {
           stateUpdate = ActiveSpeaker(state, action);
         }
         break;
+      case 'Spotlight':
+        if (actionTypeGuard(action, action.type)) {
+          stateUpdate = Spotlight(state, action);
+        }
+        break;
     }
 
     // TODO: remove Handle event listeners
@@ -459,6 +465,7 @@ const RtcConfigure = (outerProps: {children: React.ReactNode}) => {
                       ? uidState.secondaryPinnedUid
                       : undefined,
                   lastJoinedUid: uidState.lastJoinedUid,
+                  spotlightUid: uidState.spotlightUid,
                 }}>
                 {outerProps.children}
               </ContentProvider>

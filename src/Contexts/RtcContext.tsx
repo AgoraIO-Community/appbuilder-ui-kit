@@ -33,6 +33,7 @@ export interface ContentStateInterface {
   pinnedUid?: UidType;
   secondaryPinnedUid?: UidType;
   lastJoinedUid?: UidType;
+  spotlightUid?: UidType;
 }
 
 export interface ActionInterface<T extends keyof CallbacksInterface> {

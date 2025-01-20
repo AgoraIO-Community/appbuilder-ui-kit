@@ -185,6 +185,7 @@ export interface CallbacksInterface {
   AddCustomContent(uid: UidType, data: any): void;
   RemoveCustomContent(uid: UidType): void;
   UserPin(Uid: UidType): void;
+  Spotlight(Uid: UidType): void;
   UserSecondaryPin(Uid: UidType): void;
   ActiveSpeaker(Uid: UidType): void;
 }
