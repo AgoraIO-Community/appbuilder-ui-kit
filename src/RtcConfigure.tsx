@@ -33,6 +33,7 @@ import {
   UserSecondaryPin,
   ActiveSpeaker,
   Spotlight,
+  UserBanned,
 } from './Reducer';
 import Create from './Rtc/Create';
 import Join from './Rtc/Join';
@@ -264,6 +265,11 @@ const RtcConfigure = (outerProps: {children: React.ReactNode}) => {
       case 'Spotlight':
         if (actionTypeGuard(action, action.type)) {
           stateUpdate = Spotlight(state, action);
+        }
+        break;
+      case 'UserBanned':
+        if (actionTypeGuard(action, action.type)) {
+          stateUpdate = UserBanned(state, action);
         }
         break;
     }

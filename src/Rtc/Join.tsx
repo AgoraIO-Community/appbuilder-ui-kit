@@ -97,8 +97,13 @@ const Join: React.FC<{
           rtcProps?.uid || 0,
           {},
         );
-      } catch (error) {
-        console.error('RTC joinChannel error', error);
+      } catch (error: any) {
+        console.error('RTC joinChannel error ', error);
+        if (
+          error?.code === 'UID_BANNED' ||
+          error?.message?.includes('UID_BANNED')
+        )
+          dispatch({type: 'UserBanned', value: [true]});
       }
       if (
         !audioRoom &&

@@ -188,6 +188,7 @@ export interface CallbacksInterface {
   Spotlight(Uid: UidType): void;
   UserSecondaryPin(Uid: UidType): void;
   ActiveSpeaker(Uid: UidType): void;
+  UserBanned(isBanned: boolean): void;
 }
 
 export type CustomCallbacksInterface = CallbacksInterface;

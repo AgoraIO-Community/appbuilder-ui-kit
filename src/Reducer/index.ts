@@ -12,3 +12,4 @@ export {default as UserPin} from './UserPin';
 export {default as UserSecondaryPin} from './UserSecondaryPin';
 export {default as ActiveSpeaker} from './ActiveSpeaker';
 export {default as Spotlight} from './Spotlight';
+export {default as UserBanned} from './UserBanned';

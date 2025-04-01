@@ -34,6 +34,7 @@ export interface ContentStateInterface {
   secondaryPinnedUid?: UidType;
   lastJoinedUid?: UidType;
   spotlightUid?: UidType;
+  isUserBaned?: boolean;
 }
 
 export interface ActionInterface<T extends keyof CallbacksInterface> {
