@@ -472,6 +472,7 @@ const RtcConfigure = (outerProps: {children: React.ReactNode}) => {
                       : undefined,
                   lastJoinedUid: uidState.lastJoinedUid,
                   spotlightUid: uidState.spotlightUid,
+                  isUserBaned: uidState.isUserBaned,
                 }}>
                 {outerProps.children}
               </ContentProvider>
