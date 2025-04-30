@@ -57,6 +57,10 @@ const Join: React.FC<{
         // &&  rtcProps.encryption.salt
       ) {
         try {
+          console.log(
+            'setting encryption mode to ',
+            rtcProps?.encryption?.mode,
+          );
           await engine.enableEncryption(true, {
             encryptionKey: rtcProps?.encryption?.key,
             encryptionMode: rtcProps?.encryption?.mode,
