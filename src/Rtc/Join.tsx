@@ -1,5 +1,5 @@
 import React, {useEffect, useContext, useRef, useState} from 'react';
-import {IRtcEngine} from 'react-native-agora';
+import {EncryptionMode, IRtcEngine} from 'react-native-agora';
 import {ContentStateInterface} from '../Contexts/RtcContext';
 import {DispatchType} from '../Contexts/DispatchContext';
 import PropsContext, {ToggleState} from '../Contexts/PropsContext';
@@ -61,12 +61,19 @@ const Join: React.FC<{
             'setting encryption mode to ',
             rtcProps?.encryption?.mode,
           );
-          await engine.enableEncryption(true, {
+          const encryptionConfig = {
             encryptionKey: rtcProps?.encryption?.key,
             encryptionMode: rtcProps?.encryption?.mode,
-            encryptionKdfSalt: rtcProps?.encryption?.salt,
             datastreamEncryptionEnabled: true,
-          });
+
+            //encryptionKdfSalt: rtcProps?.encryption?.salt,
+            ...(rtcProps?.encryption?.mode == 1
+              ? {}
+              : {
+                  encryptionKdfSalt: rtcProps?.encryption?.salt,
+                }),
+          };
+          await engine.enableEncryption(true, encryptionConfig);
         } catch (error) {
           console.warn('encryption error', error);
         }
