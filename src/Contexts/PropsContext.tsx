@@ -142,7 +142,7 @@ export interface RtcPropsInterface {
   callActive?: boolean;
   encryption?: {
     key: string;
-    mode: EncryptionMode.Aes128Gcm2 | EncryptionMode.Aes256Gcm2;
+    mode: EncryptionMode.Aes128Xts | EncryptionMode.Aes256Gcm2;
     salt: number[];
   };
   // commented for v1 release

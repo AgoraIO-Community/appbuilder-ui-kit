@@ -51,18 +51,27 @@ const Join: React.FC<{
     const videoState = defaultContent[maxUid]?.video;
     async function join() {
       if (
-        rtcProps?.encryption &&
-        rtcProps?.encryption.key &&
-        rtcProps.encryption.mode &&
-        rtcProps.encryption.salt
+      //  rtcProps?.encryption &&
+     //   rtcProps?.encryption.key &&
+        rtcProps?.encryption?.mode
+     //   rtcProps.encryption.salt
       ) {
         try {
-          await engine.enableEncryption(true, {
-            encryptionKey: rtcProps?.encryption.key,
-            encryptionMode: rtcProps?.encryption.mode,
-            encryptionKdfSalt: rtcProps?.encryption.salt,
+          console.log(
+            'ui kit setting encryption mode to ',
+            rtcProps?.encryption?.mode,
+          );
+          const encryptionConfig = {
+            encryptionKey: rtcProps?.encryption?.key,
+            encryptionMode: rtcProps?.encryption?.mode,
             datastreamEncryptionEnabled: true,
-          });
+            ...(rtcProps?.encryption?.mode == 1
+              ? {}
+              : {
+                  encryptionKdfSalt: rtcProps?.encryption?.salt,
+                }),
+          };
+          await engine.enableEncryption(true, encryptionConfig);
         } catch (error) {
           console.warn('encryption error', error);
         }
