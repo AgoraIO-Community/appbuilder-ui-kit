@@ -11,5 +11,9 @@ export function isBotUser(args: [uid: number, elapsed: number]): boolean {
   if (args[0] === 100001) {
     return true;
   }
+  // STT Soniox Bot
+  if (args[0].toString().startsWith('999')) {
+    return true;
+  }
   return false;
 }
