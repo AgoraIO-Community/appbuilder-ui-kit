@@ -425,6 +425,7 @@ const RtcConfigure = (outerProps: {children: React.ReactNode}) => {
               value={{
                 RtcEngineUnsafe: engineRef.current,
                 setDualStreamMode,
+                rtcTracksReady: tracksReady,
               }}>
               <ContentProvider
                 value={{

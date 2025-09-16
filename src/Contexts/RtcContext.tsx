@@ -45,6 +45,7 @@ export type ActionType<T extends keyof CallbacksInterface> = ActionInterface<T>;
 export interface RtcContextInterface {
   RtcEngineUnsafe: IRtcEngine;
   setDualStreamMode: React.Dispatch<React.SetStateAction<DualStreamMode>>;
+  rtcTracksReady: boolean;
 }
 
 const RtcContext = React.createContext<RtcContextInterface>(
