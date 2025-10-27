@@ -1,6 +1,6 @@
 export function isBotUser(args: [uid: number, elapsed: number]): boolean {
   // STT bot
-  if (args[0] === 111111) {
+  if (args[0] === 111111 || args[0] > 900000000) {
     return true;
   }
   // Web Recording bot (userUid)
