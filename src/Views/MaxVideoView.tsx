@@ -46,6 +46,7 @@ const MaxVideoView: React.FC<MaxViewInterface> = (props) => {
             ? RenderModeType.RenderModeAdaptive
             : RenderModeType.RenderModeFit,
           uid: 0,
+          isScreenshare: props?.user?.type === 'screenshare',
         }}
       />
     ) : Fallback ? (
@@ -68,6 +69,7 @@ const MaxVideoView: React.FC<MaxViewInterface> = (props) => {
           canvas={{
             renderMode: RenderModeType.RenderModeFit,
             uid: uid as number,
+            isScreenshare: props?.user?.type === 'screenshare',
           }}
         />
       </div>

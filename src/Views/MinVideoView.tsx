@@ -35,7 +35,11 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
             props.user.video ? (
               <LocalView
                 style={{...styles.minView, ...(minViewStyles as object)}}
-                canvas={{renderMode: RenderModeType.RenderModeHidden, uid: 0}}
+                canvas={{
+                  renderMode: RenderModeType.RenderModeHidden,
+                  uid: 0,
+                  isScreenshare: props?.user?.type === 'screenshare',
+                }}
                 zOrderMediaOverlay={true}
               />
             ) : (
@@ -54,6 +58,7 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
               canvas={{
                 renderMode: RenderModeType.RenderModeHidden,
                 uid: uid as number,
+                isScreenshare: props?.user?.type === 'screenshare',
               }}
               zOrderMediaOverlay={true}
             />
@@ -62,7 +67,11 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
       ) : uid === localUid ? (
         <LocalView
           style={{...styles.minView, ...(minViewStyles as object)}}
-          canvas={{renderMode: RenderModeType.RenderModeHidden, uid: 0}}
+          canvas={{
+            renderMode: RenderModeType.RenderModeHidden,
+            uid: 0,
+            isScreenshare: props?.user?.type === 'screenshare',
+          }}
           zOrderMediaOverlay={true}
         />
       ) : (
@@ -71,6 +80,7 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
           canvas={{
             renderMode: RenderModeType.RenderModeHidden,
             uid: uid as number,
+            isScreenshare: props?.user?.type === 'screenshare',
           }}
           zOrderMediaOverlay={true}
         />
