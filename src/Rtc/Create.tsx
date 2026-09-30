@@ -294,6 +294,15 @@ const Create = ({
           }
         }
 
+        if (
+          Platform.OS === 'ios' &&
+          mode === ChannelProfileType.ChannelProfileCommunication
+        ) {
+          await engine.current.setAudioScenario(
+            AudioScenarioType.AudioScenarioMeeting,
+          );
+        }
+
         /**
          * API enableVideo :
          * On Web -> Asks permissions and then creates microphone and camera tracks
